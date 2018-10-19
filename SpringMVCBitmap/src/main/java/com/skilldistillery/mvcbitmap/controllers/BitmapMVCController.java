@@ -31,15 +31,19 @@ public class BitmapMVCController {
 	  ModelAndView mv = new ModelAndView();
 	  Bitmap bitmap = bitmapDAO.show(bid);     
 	  mv.addObject("bitmap", bitmap);
-	  mv.setViewName("WEB-INF/bitmap/show.jsp");
+	  mv.setViewName("WEB-INF/bitmap/results.jsp");
 	  return mv;
 	}
 
-//	@RequestMapping(path="home.do", method = RequestMethod.GET)
-//	public String index(Model model) {
-//	  List<Bitmap> bitmaps = bitmapDAO.index();
-//	  model.addAttribute("bitmaps", bitmaps);
-//	  return "/WEB-INF/index.jsp";
-//	}
+	
+	@RequestMapping(path = "addBitmap.do", method = RequestMethod.GET)
+	public ModelAndView addBitmap(@RequestParam("bid") int bid) {
+		ModelAndView mv = new ModelAndView();
+		Bitmap bitmap = bitmapDAO.show(bid);     
+		mv.addObject("bitmap", bitmap);
+		mv.setViewName("WEB-INF/bitmap/results.jsp");
+		return mv;
+	}
+	
 
 }

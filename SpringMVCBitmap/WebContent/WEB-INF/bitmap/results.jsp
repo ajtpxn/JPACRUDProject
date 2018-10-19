@@ -12,7 +12,9 @@
   <p>${bitmap.name}
   <p>Description:</p>
   <p>${bitmap.description}</p>
-  <p>Length: ${bitmap.bitmapblob}</p>
+  <p>Text File Contents:</p>
+  <p>${bitmap.bitmapblob}</p>
+  
 </div>
 
 

@@ -14,20 +14,22 @@ import com.skilldistillery.jpabitmap.entities.Bitmap;
 @Repository
 public class MVCBitmapDAOImpl implements MVCBitmapDAO {
 	
+	
+	
 	@PersistenceContext
 	  private EntityManager em;
 
 	@Override
 	public Bitmap show(int id) {
-		Bitmap film = em.find(Bitmap.class, id);
-		return film;
+		Bitmap bitmap = em.find(Bitmap.class, id);
+		return bitmap;
 	}
 
 	@Override
 	public List<Bitmap> index() {
 		String query = "SELECT b FROM Bitmap b";
-		List<Bitmap> filmList = em.createQuery(query, Bitmap.class).getResultList();
-		return filmList;
+		List<Bitmap> bitmapList = em.createQuery(query, Bitmap.class).getResultList();
+		return bitmapList;
 	}
 
 }
