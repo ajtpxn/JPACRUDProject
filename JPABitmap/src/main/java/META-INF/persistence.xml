@@ -7,6 +7,8 @@
   <persistence-unit name="BitmapDB">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
+    
+    <class>com.skilldistillery.springmvcbitmap.entities.Bitmap</class>
 
     <properties>
       <property name="javax.persistence.jdbc.url"
