@@ -1,4 +1,4 @@
-package com.skilldistillery.springmvcbitmap.entities;
+package com.skilldistillery.jpabitmap.entities;
 
 import java.sql.Time;
 
