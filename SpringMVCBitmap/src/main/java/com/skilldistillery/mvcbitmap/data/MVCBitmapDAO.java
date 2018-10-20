@@ -12,6 +12,9 @@ public interface MVCBitmapDAO {
 
 	void create(Bitmap bitmap);
 
-	void destroy(Bitmap bitmap);
+	void update(int bid, Bitmap bitmap);
+
+	void destroy(int bid);
+
 
 }

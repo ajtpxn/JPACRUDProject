@@ -1,5 +1,6 @@
 package com.skilldistillery.mvcbitmap.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,19 @@ public class BitmapMVCController {
 	
 	
 	
+	
+	@RequestMapping(path = "update.do", method = RequestMethod.GET)
+	public ModelAndView updateBitmap(@RequestParam("bid") int bid) {
+		ModelAndView mv = new ModelAndView();
+		Bitmap bitmap = bitmapDAO.show(bid);     
+		mv.addObject("bitmap", bitmap);
+		mv.addObject("update", true);
+		mv.setViewName("WEB-INF/bitmap/addbitmap.jsp");
+		return mv;
+	}
+	
+	
+	
 	@RequestMapping(path = "returnBitmapValues.do", method = RequestMethod.GET)
 	public ModelAndView returnBitmapValues(@RequestParam("name") String name,
 			@RequestParam("desc") String desc,
@@ -54,21 +68,44 @@ public class BitmapMVCController {
 		bitmap.setName(name);
 		bitmap.setDescription(desc);
 		bitmap.setBitmapblob(textfilecontents);
+		bitmap.setAdded(LocalDateTime.now());
 		bitmapDAO.create(bitmap);
 		mv.addObject("bitmap", bitmap);
 		mv.setViewName("WEB-INF/bitmap/results.jsp");
 		return mv;
 	}
 	
+	
+	@RequestMapping(path = "returnBitmapValuesUpdate.do", method = RequestMethod.GET)
+	public ModelAndView updateBitmapValues(@RequestParam("name") String name,
+			@RequestParam("desc") String desc,
+			@RequestParam("textfilecontents") String textfilecontents,
+			@RequestParam("bid") int bid) {
+		ModelAndView mv = new ModelAndView();
+		Bitmap bitmap = bitmapDAO.show(bid);     
+		bitmap.setName(name);
+		bitmap.setDescription(desc);
+		bitmap.setBitmapblob(textfilecontents);
+		bitmapDAO.update(bid, bitmap);
+		mv.addObject("bitmap", bitmap);
+		mv.setViewName("WEB-INF/bitmap/results.jsp");
+		return mv;
+	}
+	
+
+	
+	
 	@RequestMapping(path = "delete.do", method = RequestMethod.GET)
 	public ModelAndView destroyBitmap(@RequestParam("bid") int bid) {
-	  ModelAndView mv = new ModelAndView();
-	  Bitmap bitmap = bitmapDAO.show(bid);     
-	  bitmapDAO.destroy(bitmap);
-	  mv.setViewName("WEB-INF/index.jsp");
-	  return mv;
+		ModelAndView mv = new ModelAndView();
+		Bitmap bitmap = bitmapDAO.show(bid);     
+		mv.addObject("bitmap", bitmap);
+		mv.addObject("deleted", true);
+		bitmapDAO.destroy(bid);
+		mv.setViewName("WEB-INF/bitmap/results.jsp");
+		return mv;
 	}
-
+	
 	
 
 }

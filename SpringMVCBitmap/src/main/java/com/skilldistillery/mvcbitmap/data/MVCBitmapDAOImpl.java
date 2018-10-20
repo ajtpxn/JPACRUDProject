@@ -38,7 +38,19 @@ public class MVCBitmapDAOImpl implements MVCBitmapDAO {
 	}
 	
 	@Override
-	public void destroy(Bitmap bitmap) {
+	public void update(int id, Bitmap bitmap) {
+		System.out.println("Input bitmap id: "+bitmap.getId());
+		System.out.println("Input id (for find): "+id);
+		Bitmap managedBitmap = em.find(Bitmap.class, id);
+		managedBitmap.setName(bitmap.getName());
+		managedBitmap.setDescription(bitmap.getDescription());
+		managedBitmap.setBitmapblob(bitmap.getBitmapblob());
+		System.out.println("Managed Bitmap info: "+managedBitmap);
+	}
+	
+	@Override
+	public void destroy(int bid) {
+		Bitmap bitmap = em.find(Bitmap.class, bid);
 		em.remove(bitmap);
 	}
 

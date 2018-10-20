@@ -21,7 +21,7 @@
 <c:forEach items="${bitmaps}" var="bitmapItem">
 
 <p>
-<a href="getBitmap.do?bid=${bitmapItem.id}">${bitmapItem.name}</a>
+<a href="getBitmap.do?bid=${bitmapItem.id}">${bitmapItem.id} ${bitmapItem.name}</a>
 </p>
 
 
