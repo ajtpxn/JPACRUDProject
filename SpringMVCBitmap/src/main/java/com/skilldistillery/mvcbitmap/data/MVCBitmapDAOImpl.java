@@ -31,5 +31,15 @@ public class MVCBitmapDAOImpl implements MVCBitmapDAO {
 		List<Bitmap> bitmapList = em.createQuery(query, Bitmap.class).getResultList();
 		return bitmapList;
 	}
+	
+	@Override
+	public void create(Bitmap bitmap) {
+		em.persist(bitmap);
+	}
+	
+	@Override
+	public void destroy(Bitmap bitmap) {
+		em.remove(bitmap);
+	}
 
 }

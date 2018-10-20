@@ -37,13 +37,38 @@ public class BitmapMVCController {
 
 	
 	@RequestMapping(path = "addBitmap.do", method = RequestMethod.GET)
-	public ModelAndView addBitmap(@RequestParam("bid") int bid) {
+	public ModelAndView addBitmap() {
 		ModelAndView mv = new ModelAndView();
-		Bitmap bitmap = bitmapDAO.show(bid);     
+		mv.setViewName("WEB-INF/bitmap/addbitmap.jsp");
+		return mv;
+	}
+	
+	
+	
+	@RequestMapping(path = "returnBitmapValues.do", method = RequestMethod.GET)
+	public ModelAndView returnBitmapValues(@RequestParam("name") String name,
+			@RequestParam("desc") String desc,
+			@RequestParam("textfilecontents") String textfilecontents) {
+		ModelAndView mv = new ModelAndView();
+		Bitmap bitmap = new Bitmap();
+		bitmap.setName(name);
+		bitmap.setDescription(desc);
+		bitmap.setBitmapblob(textfilecontents);
+		bitmapDAO.create(bitmap);
 		mv.addObject("bitmap", bitmap);
 		mv.setViewName("WEB-INF/bitmap/results.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path = "delete.do", method = RequestMethod.GET)
+	public ModelAndView destroyBitmap(@RequestParam("bid") int bid) {
+	  ModelAndView mv = new ModelAndView();
+	  Bitmap bitmap = bitmapDAO.show(bid);     
+	  bitmapDAO.destroy(bitmap);
+	  mv.setViewName("WEB-INF/index.jsp");
+	  return mv;
+	}
+
 	
 
 }

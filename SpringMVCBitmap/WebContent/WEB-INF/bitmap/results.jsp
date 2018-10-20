@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<form action="home.do" method="GET">
+  <input type="submit" value="Home"/>
+</form>
+
 <div>
   <p>${bitmap.name}
   <p>Description:</p>
@@ -16,6 +20,11 @@
   <p>${bitmap.bitmapblob}</p>
   
 </div>
+
+<form action="delete.do" method="GET">
+<input type="hidden" value="${bitmap.id}" name="bid"/>
+  <input type="submit" value="Delete"/>
+</form>
 
 
 

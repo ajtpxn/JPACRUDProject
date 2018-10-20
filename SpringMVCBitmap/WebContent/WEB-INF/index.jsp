@@ -11,7 +11,11 @@
 
 <form action="getBitmap.do" method="GET">
   <input type="text" name="bid"/>
-  <input type="submit" value="Find Bitmap"/>
+  <input type="submit" value="Find File"/>
+</form>
+
+<form action="addBitmap.do" method="GET">
+  <input type="submit" value="Add File"/>
 </form>
 
 <c:forEach items="${bitmaps}" var="bitmapItem">

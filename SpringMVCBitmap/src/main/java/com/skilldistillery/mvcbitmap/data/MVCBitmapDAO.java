@@ -10,4 +10,8 @@ public interface MVCBitmapDAO {
 
 	List<Bitmap> index();
 
+	void create(Bitmap bitmap);
+
+	void destroy(Bitmap bitmap);
+
 }
