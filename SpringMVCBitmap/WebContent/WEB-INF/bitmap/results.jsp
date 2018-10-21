@@ -1,82 +1,118 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Results</title>
-</head>
-<body>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8">
+          <title>Results</title>
 
-<form action="home.do" method="GET">
-  <input type="submit" value="Home"/>
-</form>
+          <!-- Bootstrap core CSS -->
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"></head>
+          <body>
 
-<c:choose>
-<c:when test="${deleted == true}">
+            <div class="container">
+              <div class="p-3 mb-2 bg-dark text-white">
 
-<h1>Deleted!</h1>
+                <div class="py-5 text-center">
 
-</c:when>
+                  <h2>Story Database</h2>
 
-<c:when test="${updated == true}">
+                </div>
 
-<h1>Updated!</h1>
+                <form action="home.do" method="GET">
+                  <input type="submit" value="Home" class="btn"/>
+                </form>
+                
+                <br>
 
-<div>
-  <p>${bitmap.id} ${bitmap.name}</p>
-  <p>Description: ${bitmap.description}</p>
-  <p>Text File Contents:</p>
-  <p>${bitmap.bitmapblob}</p>
-  
-</div>
+                <c:choose>
+                  <c:when test="${deleted}">
 
-<form action="update.do" method="GET">
-<input type="hidden" value="${bitmap.id}" name="bid"/>
-  <input type="submit" value="Update"/>
-</form>
+                    <h1>${bitmap.id} Deleted!</h1>
 
+                  </c:when>
 
-<form action="delete.do" method="GET">
-<input type="hidden" value="${bitmap.id}" name="bid"/>
-  <input type="submit" value="Delete"/>
-</form>
+                  <c:when test="${updated}">
 
-</c:when>
+                    <h1>Updated!</h1>
 
-<c:otherwise>
+                    <div>
+                      <p>${bitmap.id} ${bitmap.name}</p>
+                      <p>Description: ${bitmap.description}</p>
+                      <p>Body:</p>
+                      <p>${bitmap.bitmapblob}</p>
 
+                    </div>
 
-<div>
-  <p>${bitmap.id} ${bitmap.name}</p>
-  <p>Description: ${bitmap.description}</p>
-  <p>Text File Contents:</p>
-  <p>${bitmap.bitmapblob}</p>
-  
-</div>
+                    <form action="update.do" method="GET">
+                      <input type="hidden" value="${bitmap.id}" name="bid"/>
+                      <input type="submit" value="Update" class="btn"/>
+                    </form>
 
-<form action="update.do" method="GET">
-<input type="hidden" value="${bitmap.id}" name="bid"/>
-  <input type="submit" value="Update"/>
-</form>
+                    <br>
 
+                      <form action="delete.do" method="GET">
+                        <input type="hidden" value="${bitmap.id}" name="bid"/>
+                        <input type="submit" value="Delete" class="btn"/>
+                      </form>
 
-<form action="delete.do" method="GET">
-<input type="hidden" value="${bitmap.id}" name="bid"/>
-  <input type="submit" value="Delete"/>
-</form>
+                    </c:when>
 
+                    <c:when test="${added}">
 
+                      <h1>Added!</h1>
 
-</c:otherwise>
+                      <div>
+                        <p>${bitmap.id} ${bitmap.name}</p>
+                        <p>Description: ${bitmap.description}</p>
+                        <p>Body:</p>
+                        <p>${bitmap.bitmapblob}</p>
 
-</c:choose>
+                      </div>
 
+                      <form action="update.do" method="GET">
+                        <input type="hidden" value="${bitmap.id}" name="bid"/>
+                        <input type="submit" value="Update" class="btn"/>
+                      </form>
+                      
+                      <br>
 
+                      <form action="delete.do" method="GET">
+                        <input type="hidden" value="${bitmap.id}" name="bid"/>
+                        <input type="submit" value="Delete" class="btn"/>
+                      </form>
 
+                    </c:when>
 
+                    <c:otherwise>
 
+                      <div>
+                        <p>${bitmap.id} ${bitmap.name}</p>
+                        <p>Description: ${bitmap.description}</p>
+                        <p>Body:</p>
+                        <p>${bitmap.bitmapblob}</p>
 
-</body>
-</html>
+                      </div>
+
+                      <form action="update.do" method="GET">
+                        <input type="hidden" value="${bitmap.id}" name="bid"/>
+                        <input type="submit" value="Update" class="btn"/>
+                      </form>
+                      
+                      <br>
+
+                      <form action="delete.do" method="GET">
+                        <input type="hidden" value="${bitmap.id}" name="bid"/>
+                        <input type="submit" value="Delete" class="btn"/>
+                      </form>
+
+                    </c:otherwise>
+
+                  </c:choose>
+
+                </div>
+              </div>
+
+            </body>
+          </html>

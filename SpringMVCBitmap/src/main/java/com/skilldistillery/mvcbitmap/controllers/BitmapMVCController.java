@@ -71,6 +71,7 @@ public class BitmapMVCController {
 		bitmap.setAdded(LocalDateTime.now());
 		bitmapDAO.create(bitmap);
 		mv.addObject("bitmap", bitmap);
+		mv.addObject("added", true);
 		mv.setViewName("WEB-INF/bitmap/results.jsp");
 		return mv;
 	}
@@ -88,6 +89,7 @@ public class BitmapMVCController {
 		bitmap.setBitmapblob(textfilecontents);
 		bitmapDAO.update(bid, bitmap);
 		mv.addObject("bitmap", bitmap);
+		mv.addObject("updated", true);
 		mv.setViewName("WEB-INF/bitmap/results.jsp");
 		return mv;
 	}

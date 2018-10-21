@@ -5,89 +5,109 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>Change</title>
+
+
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+
 </head>
 <body>
 
+	<div class="container" >
+	<div class="p-3 mb-2 bg-dark text-white">
 
+		<div class="py-5 text-center">
+
+    	<h2>Story Database</h2>
+
+    </div>
 
 
 	<form action="home.do" method="GET">
-		<input type="submit" value="Home" />
+		<input type="submit" value="Home"  class="btn"/>
 	</form>
 	<p>
-	<c:choose>
-	<c:when test="${update}">Update File:
-	
-	<form action="returnBitmapValuesUpdate.do" method="GET">
-		<table>
-		<input type="hidden" value="${bitmap.id}" name="bid"/>
-		<tr>
-		<td>
-		<label for="name">Name: </label> 
-		</td>
-		<td>
-		<input id="name" type="text" name="name" value="${bitmap.name}"/>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label for="desc">Description: </label>
-		</td>
-		<td>
-		<input id="desc" type="text" name="desc" value="${bitmap.description}"/><br>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label for="path">File Path: </label>
-		</td>
-		<td>
-		<input id="path" type="text" name="textfilecontents" value="${bitmap.bitmapblob}"/> 
-		<input type="submit" value="Submit File" />
-		</td>
-		</tr>
-		</table>
-	</form>
-	
-	
-	</c:when>
-	<c:otherwise>Add File:
-	
-	<form action="returnBitmapValues.do" method="GET">
-		<table>
-		<tr>
-		<td>
-		<label for="name">Name: </label> 
-		</td>
-		<td>
-		<input id="name" type="text" name="name"/>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label for="desc">Description: </label>
-		</td>
-		<td>
-		<input id="desc" type="text" name="desc"/><br>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label for="path">File Path: </label>
-		</td>
-		<td>
-		<input id="path" type="text" name="textfilecontents"/> 
-		<input type="submit" value="Submit File" />
-		</td>
-		</tr>
-		</table>
-	</form>
-	
-	
-	</c:otherwise>
-	</c:choose>
+	<br>
+		<c:choose>
+			<c:when test="${update}">Update Story:
+
+				<form action="returnBitmapValuesUpdate.do" method="GET">
+					<table>
+						<input type="hidden" value="${bitmap.id}" name="bid"/>
+						<tr>
+							<td>
+								<label for="name">Name: </label>
+							</td>
+							<td>
+								<input id="name" type="text" name="name" value="${bitmap.name}" class="form-control"  />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="desc">Description: </label>
+							</td>
+							<td>
+								<input id="desc" type="text" name="desc" value="${bitmap.description}" class="form-control" /><br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="path">Body: </label>
+							</td>
+							<td>
+								<textarea rows="4" cols="50" id="path" type="text" name="textfilecontents" class="form-control" >${bitmap.bitmapblob}</textarea><br>
+								<input type="submit" value="Submit Story"  class="btn"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+
+			</c:when>
+			<c:otherwise>Add Story:
+
+				<form action="returnBitmapValues.do" method="GET">
+					<table>
+						<tr>
+							<td>
+								<label for="name">Name: </label>
+							</td>
+							<td>
+								<input id="name" type="text" name="name" class="form-control" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="desc">Description: </label>
+							</td>
+							<td>
+								<input id="desc" type="text" name="desc" class="form-control" /><br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="path">Body: </label>
+							</td>
+							<td>
+								<textarea rows="4" cols="50" id="path" type="text" name="textfilecontents" class="form-control" >${bitmap.bitmapblob}</textarea><br>
+								<input type="submit" value="Submit Story"  class="btn"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+
+			</c:otherwise>
+		</c:choose>
 	</p>
+
+
+</div>
+</div>
 
 
 
