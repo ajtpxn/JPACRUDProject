@@ -16,9 +16,12 @@
 
                 <div class="py-5 text-center">
 
-                  <h2>Story Database</h2>
-
+                  <h2>Story Database </h2>
+                  
                 </div>
+                  
+                  
+
 
                 <form action="getBitmap.do" method="GET">
 
@@ -54,7 +57,15 @@
 
                       </c:forEach>
 
-                    </div>
+			<div class="py-5 text-center">
+
+				<a href="crud.jsp"> <img src="CRUD_VERY_SMALL.png" alt="CRUD">
+				</a>
+
+
+			</div>
+
+		</div>
                   </div>
 
                 </body>
