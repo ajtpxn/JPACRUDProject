@@ -33,7 +33,7 @@
 
 * I really enjoyed this project although when I showed it to my wife, it was very similar on the front end to previous homework projects. I had to explain that it was very different on the back end.
 * This project went a lot faster in the actual coding because of JPA. The initial configuration took longer but after that was over things moved faster.
-* I ran into a lot of issues with making the output look good. I worked through those with by temporarily using special methods (Java methods) and then removed them and put that functionality into the toString methods at the end.
+* I was able to make the output look good a lot faster this time around. I am getting more familiar with using simple bootstrap configs.
 * I got stuck for a little while on some problems with creating tests for my controller. It turned out that everything was almost functioning correctly. I just needed to actually run it live to see that. For JUnit tests Spring requires some extra configuration.
 
 
