@@ -27,7 +27,7 @@
 * Click on a story to update or delete the story.
 * On the story's display page, click update or delete to update or delete the story.
 * On the update page, put in any changes you would like and click "Update Story."
-* Example database online [Story](http://www.jaloway.com:8080/SpringMVCBitmap/)
+* Example database online: [Story](http://www.jaloway.com:8080/SpringMVCBitmap/)
 
 
 ### Notes ###
