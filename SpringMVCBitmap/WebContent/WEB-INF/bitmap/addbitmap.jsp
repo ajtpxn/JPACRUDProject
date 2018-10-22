@@ -18,7 +18,7 @@
 
 
 </head>
-<body>
+<body class="p-3 mb-2 bg-dark text-white">
 
 	<div class="container">
 		<div class="p-3 mb-2 bg-dark text-white">
@@ -54,9 +54,10 @@
 								</tr>
 								<tr>
 									<td><label for="path">Body: </label></td>
-									<td><textarea rows="20" cols="80"  id="path" type="text"
-											name="textfilecontents" class="form-control">${bitmap.bitmapblob}</textarea></td>
-									<td> <input type="submit" value="Submit Story" class="btn" /></td>
+									<td><textarea rows="20" cols="80" id="path" type="text"
+											name="textfilecontents" class="form-control">${bitmap.bitmapblob}</textarea>
+										<br> <input type="submit" value="Submit Story"
+										class="btn" /></td>
 								</tr>
 							</table>
 						</form>
@@ -80,8 +81,10 @@
 								<tr>
 									<td><label for="path">Body: </label></td>
 									<td><textarea rows="20" cols="80" id="path" type="text"
-											name="textfilecontents" class="form-control">${bitmap.bitmapblob}</textarea></td>
-										<td><input type="submit" value="Submit Story" class="btn" /></td>
+											name="textfilecontents" class="form-control">${bitmap.bitmapblob}</textarea>
+										<br> <input type="submit" value="Submit Story"
+										class="btn" /></td>
+
 								</tr>
 							</table>
 						</form>
@@ -93,7 +96,7 @@
 
 			<div class="py-5 text-center">
 
-				<a href="crud.jsp"> <img src="CRUD_VERY_SMALL.png" alt="CRUD" >
+				<a href="crud.jsp"> <img src="CRUD_VERY_SMALL.png" alt="CRUD">
 				</a>
 
 
